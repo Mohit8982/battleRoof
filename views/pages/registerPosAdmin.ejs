@@ -1,0 +1,94 @@
+<% layout('../layout') %>
+<div class="row">
+    <div class="col-md-12 col-xl-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Register New POS Admin</h3>
+            </div>
+            <div class="card-body">
+                <form id="register" method="POST" action="/register">
+                    <div class="row">
+                        <div id="errText"></div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Name <span class="text-red">*</span></label>
+                                <input type="text" name="name" class="form-control" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Username<span class="text-red">*</span></label>
+                                <input type="text" name="username" class="form-control" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Password<span class="text-red">*</span></label>
+                                <input type="text" name="password" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Mobile Number<span class="text-red">*</span></label>
+                                <input type="number" name="mobile" class="form-control" placeholder="Mobile Number">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Email <span class="text-red">*</span></label>
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Company Name <span class="text-red">*</span></label>
+                                <input type="text" name="company" class="form-control" placeholder="Company Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="form-label">Details</label>
+                                <textarea  rows="5"  class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="login100-form-btn btn-primary" value="submit">Register POS Admin</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#register').submit(function() {
+            $(this).ajaxSubmit({
+                error: function(xhr) {
+                    status('Error: ' + xhr.status);
+                },
+                success: function(response) {
+                    let status = response.status;
+
+                    switch (status) {
+                        case 1:
+                            $("#errText").html(response.message)
+                            $("#register")[0].reset();
+                            break;
+                        case 2:
+                            $("#errText").html(response.message)
+                            break;
+                        case 4:
+                            $("#errText").html(response.message)
+                            setTimeout(() => {
+                                window.location.href = response.redirectUrl                                
+                            }, 10000);
+                            break;
+                    }
+                }
+            });
+            return false;
+        });
+       
+    });
+</script>

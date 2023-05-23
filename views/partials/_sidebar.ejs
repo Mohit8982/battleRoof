@@ -1,0 +1,103 @@
+<div class="sticky">
+    <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+    <div class="app-sidebar">
+        <div class="side-header">
+            <a class="header-brand1" href="index.html">
+                <img src="../assets/images/brand/logo-3.png" class="header-brand-img light-logo1"
+                    alt="logo" style="width: 30%!important" >
+            </a>
+        </div>
+        <div class="main-sidemenu">
+            <div class="slide-left disabled" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg"
+                    fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" />
+                </svg></div>
+            <ul class="side-menu">
+
+                <% if(userInfo.userType == 1){ %>
+                    <li class="sub-category">
+                        <h3>Main</h3>
+                    </li>
+                    <li class="slide">
+                        <a class="side-menu__item has-link" data-bs-toggle="slide" href="/dashboard"><i
+                                class="side-menu__icon fe fe-home"></i><span
+                                class="side-menu__label">Dashboard</span></a>
+                    </li>
+                    <li class="slide">
+                        <a class="side-menu__item has-link" data-bs-toggle="slide" href="/user/registerPosAdmin"><i
+                                class="side-menu__icon fe fe-home"></i><span
+                                class="side-menu__label">Create Pos Admin</span></a>
+                      </li>
+                    <li class="slide">
+                      <a class="side-menu__item has-link" data-bs-toggle="slide" href="/user/manageUser"><i
+                              class="side-menu__icon fe fe-home"></i><span
+                              class="side-menu__label">Manage User</span></a>
+                    </li>
+                    <!-- <li class="slide">
+                        <a class="side-menu__item has-link" data-bs-toggle="slide" href="/products/manageProducts"><i
+                                class="side-menu__icon fe fe-home"></i><span
+                                class="side-menu__label">Manage Products</span></a>
+                    </li>
+                    <li class="slide">
+                        <a class="side-menu__item has-link" data-bs-toggle="slide" href="/transactions"><i
+                                class="side-menu__icon fe fe-home"></i><span
+                                class="side-menu__label">Transactions</span></a>
+                    </li> -->
+                <% } %>
+
+                <% if(userInfo.userType == 0){ %>
+                    <li class="sub-category">
+                        <h3>POS Admin</h3>
+                    </li>
+                    <li class="slide">
+                        <a class="side-menu__item has-link" data-bs-toggle="slide" href="/user/dashboard"><i
+                                class="side-menu__icon fe fe-home"></i><span
+                                class="side-menu__label">Dashboard</span></a>
+                    </li>
+                    <li class="slide">
+                      <a class="side-menu__item has-link" data-bs-toggle="slide" href="/user/manageUser"><i
+                              class="side-menu__icon fe fe-home"></i><span
+                              class="side-menu__label">Manage Cashier</span></a>
+                    </li>
+                    <li class="slide">
+                        <a class="side-menu__item has-link" data-bs-toggle="slide" href="/transactions/cashierTransaction"><i
+                                class="side-menu__icon fe fe-home"></i><span
+                                class="side-menu__label">Cashier Transactions</span></a>
+                    </li>
+                <% } %>
+
+                <% if(userInfo.userType == 2){ %>
+                    <li class="sub-category">
+                        <h3>Cashier </h3>
+                    </li>
+                    <li class="slide">
+                        <a class="side-menu__item has-link" data-bs-toggle="slide" href="/products/easyPay"><i
+                                class="side-menu__icon fe fe-home"></i><span
+                                class="side-menu__label">Easy Recharge</span></a>
+                    </li>
+                    <li class="slide">
+                      <a class="side-menu__item has-link" data-bs-toggle="slide" href="/products/kinaPay"><i
+                              class="side-menu__icon fe fe-home"></i><span
+                              class="side-menu__label">Kina Recharge</span></a>
+                    </li>
+                    <li class="slide">
+                        <a class="side-menu__item has-link" data-bs-toggle="slide" href="/products/JivePay"><i
+                                class="side-menu__icon fe fe-home"></i><span
+                                class="side-menu__label">Jive Recharge</span></a>
+                    </li>
+                    <li class="slide">
+                        <a class="side-menu__item has-link" data-bs-toggle="slide" href="/products/flexPay"><i
+                                class="side-menu__icon fe fe-home"></i><span
+                                class="side-menu__label">Flex Recharge</span></a>
+                    </li>
+                <% } %>
+               
+            </ul>
+            <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                    width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
