@@ -8,13 +8,12 @@ const schema = new Schema({
     mobile: { type: String, required: true },
     email:{ type: String, required: true },
     rank:{type: String, required: false},
-    region:{type: String, required: true},
-    country:{type: String, required: true},
-    state:{type: String, required: true},
-    city:{type: String, required: true},
+    region:{type: String, required: false},
+    country:{type: String, required: false},
+    state:{type: String, required: false},
+    city:{type: String, required: false},
     balance:{type: Number, required: true},
-    isActive:{ type: Boolean, default: true },
-    userType: { type: Number, default: 0, required: true}
+    isActive:{ type: Boolean, default: true }
 },
 { timestamps: true });
 

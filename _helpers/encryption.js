@@ -8,7 +8,7 @@ exports.hash_key = async (value) => {
     return hashedvalue;
 };
 
-exports.sign_token = async (param) => {    
+exports.sign_token = async (param) => {
     const { value, expiry = '12h' } = param;
     const token = jwt.sign({  data: value }, process.env.secret, { expiresIn: expiry });
     return token;
